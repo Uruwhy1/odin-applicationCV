@@ -18,6 +18,16 @@ export default function App() {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
 
+  const [educationArray, setEducationArray] = useState([]);
+
+  const addEducation = (newEducation) => {
+    setEducationArray((prevEducationArray) => [...prevEducationArray, newEducation]);
+  };
+
+  function test() {
+    console.log(educationArray)
+  }
+
   return (
     <div className="app">
       <Builder
@@ -29,6 +39,7 @@ export default function App() {
         handleEmailChange={handleEmailChange}
         address={address}
         handleAddressChange={handleAddressChange}
+        addEducation={addEducation}
       />
       <Preview
         phoneNumber={phoneNumber}
@@ -36,6 +47,8 @@ export default function App() {
         email={email}
         address={address}
       />
+
+      <button onClick={test}>test</button>
     </div>
   );
 }

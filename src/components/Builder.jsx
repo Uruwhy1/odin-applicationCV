@@ -11,6 +11,8 @@ export default function Builder({
   handleEmailChange,
   address,
   handleAddressChange,
+  educationArray,
+  addEducation
 }) {
   return (
     <div className="builder">
@@ -27,7 +29,10 @@ export default function Builder({
         />
       </div>
       <div className="section-margin">
-        <EducationForm />
+        <EducationForm 
+          educationArray={educationArray}
+          addEducation={addEducation}
+        />
       </div>
     </div>
   );

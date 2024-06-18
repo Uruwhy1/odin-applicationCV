@@ -63,11 +63,15 @@
   --body-bg-color: #f0f0f0;
   --bg-color: #ffffff;
   --bg-color-darker: #dbdbdb;
-  --accent-color: 
+  --green: #86e496;
+  --darker-green: #6ee4a3;
+}
+
+button {
+  font-family: inherit;
 }
 
 body {
-
   font-family: "Roboto", sans-serif;
   background-color: var(--body-bg-color);
 

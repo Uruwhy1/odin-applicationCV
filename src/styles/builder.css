@@ -54,6 +54,30 @@
   border: 1px solid rgba(0, 0, 0, 0.507);
 }
 
+.form button {
+  max-width: fit-content;
+  padding: 0.5em 2.0em;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 5px;
+  background-color: var(--green);
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+.form .submit {
+  background-color: var(--green);
+}
+.form .submit:hover {
+  background-color: var(--darker-green);
+}
+.form .submit:active {
+  transform: scale(0.9);
+}
+
 /* HEADER CLOSING AND OPENING FUNCTIONALITY*/
 .header {
   position: relative;
