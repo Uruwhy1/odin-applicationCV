@@ -1,0 +1,5 @@
+.preview {
+  grid-area: right;
+  background-color: var(--bg-color-darker);
+
+}
