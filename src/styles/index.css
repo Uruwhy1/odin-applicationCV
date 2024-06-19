@@ -64,7 +64,9 @@
   --bg-color: #ffffff;
   --bg-color-darker: #dbdbdb;
   --green: #86e496;
-  --darker-green: #6ee4a3;
+  --darker-green: #63cc92;
+  --red: #ff7783;
+  --darker-red: #c55a63;
 }
 
 button {

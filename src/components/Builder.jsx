@@ -1,6 +1,7 @@
 import "../styles/builder.css";
-import PersonalForm from "./PersonalForm";
-import EducationForm from "./EducationForm";
+import "../styles/forms.css"
+import PersonalForm from "./PersonalSection";
+import EducationForm from "./EducationSection";
 
 export default function Builder({
   phoneNumber,
@@ -12,7 +13,8 @@ export default function Builder({
   address,
   handleAddressChange,
   educationArray,
-  addEducation
+  addEducation,
+  removeEducation
 }) {
   return (
     <div className="builder">
@@ -32,6 +34,7 @@ export default function Builder({
         <EducationForm 
           educationArray={educationArray}
           addEducation={addEducation}
+          removeEducation={removeEducation}
         />
       </div>
     </div>

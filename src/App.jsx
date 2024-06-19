@@ -2,6 +2,7 @@ import "./styles/app.css";
 import Builder from "./components/Builder";
 import Preview from "./components/Preview";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -21,12 +22,19 @@ export default function App() {
   const [educationArray, setEducationArray] = useState([]);
 
   const addEducation = (newEducation) => {
-    setEducationArray((prevEducationArray) => [...prevEducationArray, newEducation]);
+    const educationWithId = { ...newEducation, id: uuidv4() }; // add uuid
+    setEducationArray((prevEducationArray) => [
+      ...prevEducationArray,
+      educationWithId,
+    ]);
   };
-
-  function test() {
+  const removeEducation = (id) => {
     console.log(educationArray)
-  }
+
+    setEducationArray((prevArray) =>
+      prevArray.filter((entry) => entry.id !== id)
+    );
+  };
 
   return (
     <div className="app">
@@ -39,7 +47,9 @@ export default function App() {
         handleEmailChange={handleEmailChange}
         address={address}
         handleAddressChange={handleAddressChange}
+        educationArray={educationArray}
         addEducation={addEducation}
+        removeEducation={removeEducation}
       />
       <Preview
         phoneNumber={phoneNumber}
@@ -47,8 +57,6 @@ export default function App() {
         email={email}
         address={address}
       />
-
-      <button onClick={test}>test</button>
     </div>
   );
 }

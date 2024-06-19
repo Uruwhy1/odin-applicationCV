@@ -28,7 +28,7 @@ export default function PersonalForm({
 
       {isFormVisible && (
         <>
-          <label className="recommended">
+          <label className="required">
             Full Name
             <input
               type="text"

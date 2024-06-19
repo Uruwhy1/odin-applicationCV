@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function EducationForm({ addEducation }) {
-  const [isFormVisible, setIsFormVisible] = useState(false);
-
-  const handleToggleFormVisibility = () => {
-    setIsFormVisible(!isFormVisible);
-  };
+export default function EducationForm({addEducation, handleToggleFormVisibility }) {
 
   const [school, setSchool] = useState("");
   const [degree, setDegree] = useState("");
@@ -23,53 +18,47 @@ export default function EducationForm({ addEducation }) {
   };
 
   return (
-    <div className="form">
-      <div className="header">
-        <h1>Education</h1>
-        <span
-          className={`hover-trigger ${isFormVisible ? "active" : ""}`}
-          onClick={handleToggleFormVisibility}
-        ></span>
+    <form className="form" onSubmit={handleSubmit}>
+      <label className="required">
+        School Name
+        <input
+          type="text"
+          placeholder="School Name"
+          value={school}
+          onChange={(e) => setSchool(e.target.value)}
+          required
+        />
+      </label>
+      <label className="required">
+        Degree
+        <input
+          type="text"
+          placeholder="Degree"
+          onChange={(e) => setDegree(e.target.value)}
+          value={degree}
+          required
+        />
+      </label>
+      <label className="recommended">
+        Start Date
+        <input
+          type="date"
+          onChange={(e) => setStartDate(e.target.value)}
+          value={startDate}
+        />
+      </label>
+      <label className="recommended">
+        End Date
+        <input
+          type="date"
+          onChange={(e) => setEndDate(e.target.value)}
+          value={endDate}
+        />
+      </label>
+      <div className="buttons">
+      <button className="submit">Save</button>
+      <button className="reset" onClick={handleToggleFormVisibility}>Close</button>
       </div>
-      {isFormVisible && (
-        <form className="form" onSubmit={handleSubmit}>
-          <label className="recommended">
-            School Name
-            <input
-              type="text"
-              placeholder="School Name"
-              value={school}
-              onChange={(e) => setSchool(e.target.value)}
-            />
-          </label>
-          <label className="recommended">
-            Degree
-            <input
-              type="text"
-              placeholder="Degree"
-              onChange={(e) => setDegree(e.target.value)}
-              value={degree}
-            />
-          </label>
-          <label className="recommended">
-            Start Date
-            <input
-              type="date"
-              onChange={(e) => setStartDate(e.target.value)}
-              value={startDate}
-            />
-          </label>
-          <label className="recommended">
-            End Date
-            <input
-              type="date"
-              onChange={(e) => setEndDate(e.target.value)}
-              value={endDate}
-            />
-          </label>
-          <button className="submit">Save</button>
-        </form>
-      )}
-    </div>
+    </form>
   );
 }
