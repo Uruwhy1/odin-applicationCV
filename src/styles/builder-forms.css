@@ -43,42 +43,14 @@
   border: 1px solid rgba(0, 0, 0, 0.507);
 }
 
-.buttons {
+.edu-form .buttons {
   display: flex;
-  gap: 15px;
+  gap: 0.5em;
+}
+.edu-form .buttons button {
+  width: 100px;
 }
 
-.form button {
-  max-width: fit-content;
-  padding: 0.5em 2.0em;
-
-  font-size: 1.2rem;
-  font-weight: 600;
-
-  border: none;
-  border-radius: 5px;
-  background-color: var(--green);
-
-  cursor: pointer;
-  transition: 0.2s;
-}
-.form button:active {
-  transform: scale(0.9);
-}
-
-.form .submit {
-  background-color: var(--green);
-}
-.form .submit:hover {
-  background-color: var(--darker-green);
-}
-
-.form .reset {
-  background-color: var(--red);
-}
-.form .reset:hover {
-  background-color: var(--darker-red);
-}
 
 /* HEADER CLOSING AND OPENING FUNCTIONALITY*/
 .header {

@@ -1,7 +1,7 @@
 import "../styles/builder.css";
-import "../styles/forms.css"
+import "../styles/builder-forms.css"
 import PersonalForm from "./PersonalSection";
-import EducationForm from "./EducationSection";
+import EducationSection from "./EducationSection";
 
 export default function Builder({
   phoneNumber,
@@ -31,7 +31,7 @@ export default function Builder({
         />
       </div>
       <div className="section-margin">
-        <EducationForm 
+        <EducationSection 
           educationArray={educationArray}
           addEducation={addEducation}
           removeEducation={removeEducation}

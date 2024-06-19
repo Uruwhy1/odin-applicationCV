@@ -1,4 +1,5 @@
 import "./styles/app.css";
+import "./styles/variables.css";
 import Builder from "./components/Builder";
 import Preview from "./components/Preview";
 import { useState } from "react";
@@ -19,7 +20,15 @@ export default function App() {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
 
-  const [educationArray, setEducationArray] = useState([]);
+  const [educationArray, setEducationArray] = useState([
+    {
+      id: 1,
+      school: "School Test",
+      degree: "Elementary School",
+      startDate: '20/04/2023',
+      endDate: '23/05/2029'
+    },
+  ]);
 
   const addEducation = (newEducation) => {
     const educationWithId = { ...newEducation, id: uuidv4() }; // add uuid
@@ -29,7 +38,7 @@ export default function App() {
     ]);
   };
   const removeEducation = (id) => {
-    console.log(educationArray)
+    console.log(educationArray);
 
     setEducationArray((prevArray) =>
       prevArray.filter((entry) => entry.id !== id)

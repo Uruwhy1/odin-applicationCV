@@ -1,6 +1,7 @@
 import { useState } from "react";
-import EducationForm from "./EducationForm";
+import NewEducationForm from "./NewEducationForm";
 import arrowRight from "../assets/images/arrow-right.svg";
+
 
 export default function EducationSection({
   educationArray,
@@ -8,10 +9,16 @@ export default function EducationSection({
   addEducation,
 }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isEditVisible, setIsEditVisible] = useState(false);
 
   const handleToggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
   };
+  const handleEditFormVisibility = () => {
+    setIsEditVisible(!isEditVisible);
+  };
+
+
 
   return (
     <div className="form">
@@ -23,8 +30,8 @@ export default function EducationSection({
         ></span>
       </div>
       {isFormVisible && (
-        <EducationForm
-          addEducation={addEducation}
+        <NewEducationForm
+        addEducation={addEducation}
           handleToggleFormVisibility={handleToggleFormVisibility}
         />
       )}
@@ -32,6 +39,7 @@ export default function EducationSection({
         <EducationDisplay
           educationArray={educationArray}
           removeEducation={removeEducation}
+          handleEditFormVisibility={handleEditFormVisibility}
         />
       )}
     </div>
@@ -39,6 +47,7 @@ export default function EducationSection({
 }
 
 function EducationDisplay({ educationArray, removeEducation }) {
+  
   return (
     <div>
       {educationArray.length > 0 ? (
@@ -52,8 +61,13 @@ function EducationDisplay({ educationArray, removeEducation }) {
                 <img src={arrowRight} alt="" />
                 <p>{item.endDate}</p>
               </div>
-              <div className="buttons">
-                <button onClick={() => removeEducation(item.id)}></button>
+              <div className="display-buttons">
+                <button className="red-button" onClick={() => removeEducation(item.id)}>
+                  Remove
+                </button>
+                <button className="yellow-button">
+                  Edit
+                </button>
               </div>
             </li>
           ))}

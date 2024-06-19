@@ -14,6 +14,7 @@
   margin-bottom: 0.3rem;
 }
 
+
 .education-display {
   position: relative;
   list-style-type: none;
@@ -25,12 +26,11 @@
 
   display: grid;
   gap: 0.5em 0;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 50% auto;
   grid-template-rows: 50% auto;
-  grid-template-areas: 
-  'degree dates'
-  'school buttons';
-
+  grid-template-areas:
+    "degree dates"
+    "school buttons";
 }
 .education-display:last-of-type {
   margin-bottom: none;
@@ -43,6 +43,7 @@
 
 .education-display .dates {
   grid-area: dates;
+  place-self: center end;
 
   display: flex;
   justify-content: center;
@@ -59,3 +60,26 @@
   object-fit: cover;
   width: 1.2em;
 }
+
+.education-display .display-buttons {
+  grid-area: buttons;
+  place-self: end;
+
+  width: fit-content;
+  height: fit-content;
+  padding-top: 3px;
+  padding-left: 0.5em;
+  padding-right: 0.5;
+
+  display: flex;
+  gap: 0.5em;
+  justify-content: end;
+  align-items: end;
+}
+.education-display .display-buttons button {
+  border-radius: 5px;
+  border: none;
+
+  padding: 0.5em 1em;
+}
+
