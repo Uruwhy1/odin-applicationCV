@@ -1,6 +1,8 @@
 import "./styles/app.css";
 import "./styles/variables.css";
 import PersonalForm from "./components/PersonalSection";
+import Preview from "./components/Preview.jsx";
+
 import { useState } from "react";
 
 export default function App() {
@@ -31,7 +33,7 @@ export default function App() {
   const handleGenderChange = (e) => setGender(e.target.value);
   const handleNationalityChange = (e) => setNationality(e.target.value);
   const handleDateOfBirthChange = (e) => setDateOfBirth(e.target.value);
-  const handlePlaceOfBirthChange = (e) => setPlaceOfBirth(e.target.value)
+  const handlePlaceOfBirthChange = (e) => setPlaceOfBirth(e.target.value);
 
   return (
     <div className="container">
@@ -57,7 +59,7 @@ export default function App() {
         dateOfBirth={dateOfBirth}
         handleDateOfBirthChange={handleDateOfBirthChange}
         placeOfBirth={placeOfBirth}
-        handlePlaceOfBirthChange={handleAddressChange}
+        handlePlaceOfBirthChange={handlePlaceOfBirthChange}
       />
       {false && (
         <div>
@@ -79,11 +81,22 @@ export default function App() {
           />
         </div>
       )}
+      <Preview
+        phoneNumber={phoneNumber}
+        firstName={firstName}
+        lastName={lastName}
+        email={email}
+        address={address}
+        zipCode={zipCode}
+        city={city}
+        gender={gender}
+        nationality={nationality}
+        dateOfBirth={dateOfBirth}
+        placeOfBirth={placeOfBirth}
+      />
     </div>
   );
 }
-
-
 
 /*   // EDUCATION SECTION STUFF
   const [educationArray, setEducationArray] = useState([

@@ -2,9 +2,12 @@
   background-color: var(--bg-color);
   border-radius: 5px;
 
+
   width: 45%;
-  height: 60%;
   padding: 2em;
+
+  transition: 5s;
+
 }
 
 .section h1 {
@@ -17,12 +20,23 @@
   margin-bottom: 1rem;
 }
 
+.second-header h1 {
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
+.no-margin {
+  margin: 0;
+}
+
 .section .form {
   position: relative;
   display: flex;
   gap: 1em;
   flex-direction: column;
+
 }
+
 
 .form label {
   display: flex;
@@ -62,12 +76,31 @@
 
 .section input {
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
 
   border-radius: 3px;
   border: 2px solid rgba(0, 0, 0, 0.13);
 }
-
+.section input:focus {
+  border-color: blue;
+  outline: none;
+}
 .section input::placeholder {
   color: gray;
+}
+
+.section svg {
+  cursor: pointer;
+  transition: 0.1s;
+}
+.section svg:hover {
+  transform: scale(1.1);
+}
+
+.section .hidden {
+  display: none;
+}
+
+.section .visible {
+
 }
