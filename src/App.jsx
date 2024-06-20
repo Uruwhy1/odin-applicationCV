@@ -25,8 +25,8 @@ export default function App() {
       id: 1,
       school: "School Test",
       degree: "Elementary School",
-      startDate: '20/04/2023',
-      endDate: '23/05/2029'
+      startDate: "20/04/2023",
+      endDate: "23/05/2029",
     },
   ]);
 
@@ -38,10 +38,15 @@ export default function App() {
     ]);
   };
   const removeEducation = (id) => {
-    console.log(educationArray);
-
     setEducationArray((prevArray) =>
       prevArray.filter((entry) => entry.id !== id)
+    );
+  };
+  const editEducation = (updatedEducation) => {
+    setEducationArray((prevArray) =>
+      prevArray.map((entry) =>
+        entry.id === updatedEducation.id ? updatedEducation : entry
+      )
     );
   };
 
@@ -59,6 +64,7 @@ export default function App() {
         educationArray={educationArray}
         addEducation={addEducation}
         removeEducation={removeEducation}
+        editEducation={editEducation}
       />
       <Preview
         phoneNumber={phoneNumber}

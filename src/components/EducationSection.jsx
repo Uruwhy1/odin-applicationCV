@@ -7,15 +7,19 @@ export default function EducationSection({
   educationArray,
   removeEducation,
   addEducation,
+  editEducation
 }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const [isEditVisible, setIsEditVisible] = useState(false);
+  const [editItem, setEditItem] = useState('')
 
   const handleToggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
+    setEditItem(null); // Reset edit item when form is toggled
   };
-  const handleEditFormVisibility = () => {
-    setIsEditVisible(!isEditVisible);
+
+  const handleEditFormVisibility = (item) => {
+    setEditItem(item)
+    setIsFormVisible(!isFormVisible);
   };
 
 
@@ -32,7 +36,9 @@ export default function EducationSection({
       {isFormVisible && (
         <NewEducationForm
         addEducation={addEducation}
-          handleToggleFormVisibility={handleToggleFormVisibility}
+        editEducation={editEducation}
+        handleToggleFormVisibility={handleToggleFormVisibility}
+        editItem={editItem}
         />
       )}
       {!isFormVisible && (
@@ -46,7 +52,7 @@ export default function EducationSection({
   );
 }
 
-function EducationDisplay({ educationArray, removeEducation }) {
+function EducationDisplay({ educationArray, removeEducation, handleEditFormVisibility }) {
   
   return (
     <div>
@@ -65,7 +71,7 @@ function EducationDisplay({ educationArray, removeEducation }) {
                 <button className="red-button" onClick={() => removeEducation(item.id)}>
                   Remove
                 </button>
-                <button className="yellow-button">
+                <button className="yellow-button" onClick={() => handleEditFormVisibility(item)}>
                   Edit
                 </button>
               </div>

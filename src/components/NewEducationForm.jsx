@@ -1,21 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function EducationForm({addEducation, handleToggleFormVisibility }) {
-
+export default function EducationForm({
+  addEducation,
+  editEducation,
+  handleToggleFormVisibility,
+  editItem,
+}) {
   const [school, setSchool] = useState("");
   const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  useEffect(() => {
+    if (editItem) {
+      setSchool(editItem.school);
+      setDegree(editItem.degree);
+      setStartDate(editItem.startDate);
+      setEndDate(editItem.endDate);
+    }
+  }, [editItem]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newEducation = { school, degree, startDate, endDate };
 
-    addEducation(newEducation);
-    handleToggleFormVisibility()
+    if (editItem) {
+      newEducation.id = editItem.id;
+      editEducation(newEducation);
+    } else {
+      addEducation(newEducation);
+    }
 
-    setSchool("");
-    setDegree("");
+    handleToggleFormVisibility();
   };
 
   return (
@@ -44,6 +60,7 @@ export default function EducationForm({addEducation, handleToggleFormVisibility 
         Start Date
         <input
           type="text"
+          placeholder="01/01/0001"
           onChange={(e) => setStartDate(e.target.value)}
           value={startDate}
         />
@@ -52,13 +69,16 @@ export default function EducationForm({addEducation, handleToggleFormVisibility 
         End Date
         <input
           type="text"
+          placeholder="09/09/9999"
           onChange={(e) => setEndDate(e.target.value)}
           value={endDate}
         />
       </label>
       <div className="buttons">
         <button className="green-button">Save</button>
-        <button className="red-button" onClick={handleToggleFormVisibility}>Close</button>
+        <button className="red-button" onClick={handleToggleFormVisibility}>
+          Close
+        </button>
       </div>
     </form>
   );

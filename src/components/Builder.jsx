@@ -14,7 +14,8 @@ export default function Builder({
   handleAddressChange,
   educationArray,
   addEducation,
-  removeEducation
+  removeEducation,
+  editEducation
 }) {
   return (
     <div className="builder">
@@ -35,6 +36,7 @@ export default function Builder({
           educationArray={educationArray}
           addEducation={addEducation}
           removeEducation={removeEducation}
+          editEducation={editEducation}
         />
       </div>
     </div>
