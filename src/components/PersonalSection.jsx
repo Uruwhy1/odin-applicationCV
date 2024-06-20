@@ -1,15 +1,29 @@
 import { useState } from "react";
-import '../styles/section.css'
+import "../styles/section.css";
 
 export default function PersonalForm({
   phoneNumber,
   handlePhoneNumberChange,
-  fullName,
-  handleFullNameChange,
+  firstName,
+  lastName,
+  handleFirstNameChange,
+  handleLastNameChange,
   email,
   handleEmailChange,
   address,
   handleAddressChange,
+  zipCode,
+  handleZipCodeChange,
+  city,
+  handleCityChange,
+  gender,
+  handleGenderChange,
+  nationality,
+  handleNationalityChange,
+  dateOfBirth,
+  handleDateOfBirthChange,
+  placeOfBirth,
+  handlePlaceOfBirthChange,
 }) {
   const [isFormVisible, setIsFormVisible] = useState(true);
 
@@ -22,51 +36,126 @@ export default function PersonalForm({
       <div className="header">
         <h1>Personal Information</h1>
         <span
-          className={`hover-trigger ${isFormVisible ? 'active' : ""}`}
+          className={`hover-trigger ${isFormVisible ? "active" : ""}`}
           onClick={handleToggleFormVisibility}
         ></span>
       </div>
 
       {isFormVisible && (
-        <>
-          <label className="required">
-            Full Name
-            <input
-              type="text"
-              value={fullName}
-              onChange={handleFullNameChange}
-              placeholder="Lionel Messi"
-            />
-          </label>
-          <label className="required">
-            Email
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              placeholder="example@mail.com"
-            />
-          </label>
-          <label className="recommended">
-            Phone Number
-            <input
-              type="text"
-              value={phoneNumber}
-              placeholder="555-555-5555"
-              onChange={handlePhoneNumberChange}
-              required
-            />
-          </label>
-          <label className="recommended">
+        <div className="form">
+          <div className="two-columns">
+            <label className="required">
+              First Name
+              <input
+                type="text"
+                value={firstName}
+                onChange={handleFirstNameChange}
+                placeholder="Lionel"
+                required
+              />
+            </label>
+            <label className="required">
+              Last Name
+              <input
+                type="text"
+                value={lastName}
+                placeholder="Messi"
+                onChange={handleLastNameChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="two-columns">
+            <label className="required">
+              Email Address
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder="example@mail.com"
+              />
+            </label>
+            <label className="recommended">
+              Phone Number
+              <input
+                type="text"
+                value={phoneNumber}
+                placeholder="555-555-5555"
+                onChange={handlePhoneNumberChange}
+                required
+              />
+            </label>
+          </div>
+          <label>
             Address
             <input
               type="text"
               value={address}
               onChange={handleAddressChange}
-              placeholder="City, Province"
+              placeholder="Messi's House"
             />
           </label>
-        </>
+          <div className="two-columns">
+            <label>
+              Zip Code
+              <input
+                type="text"
+                value={zipCode}
+                onChange={handleZipCodeChange}
+                placeholder="12345"
+              />
+            </label>
+            <label>
+              City
+              <input
+                type="text"
+                value={city}
+                onChange={handleCityChange}
+                placeholder="Miami, Florida"
+              />
+            </label>
+          </div>
+          <div className="two-columns">
+            <label>
+              Gender
+              <input
+                type="text"
+                value={gender}
+                onChange={handleGenderChange}
+                placeholder="Male"
+              />
+            </label>
+            <label>
+              Nationality
+              <input
+                type="text"
+                value={nationality}
+                onChange={handleNationalityChange}
+                placeholder="Argentinian"
+              />
+            </label>
+          </div>
+          <div className="two-columns">
+            <label>
+              Date of Birth
+              <input
+                type="text"
+                placeholder="10/03/1985"
+                value={dateOfBirth}
+                onChange={handleDateOfBirthChange}
+              />
+            </label>
+            <label>
+            Place of Birth
+            <input
+              type="text"
+              placeholder="Buenos Aires, Argentina"
+              value={placeOfBirth}
+              onChange={handlePlaceOfBirthChange}
+            />
+          </label>
+          </div>
+        </div>
       )}
     </div>
   );
