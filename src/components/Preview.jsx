@@ -5,6 +5,7 @@ export default function Preview({
   fullName = { fullName },
   email = { email },
   address = { address },
+  educationArray = {educationArray}
 }) {
   return (
     <div className="preview">
@@ -12,6 +13,9 @@ export default function Preview({
       <h1>{email}</h1>
       <h1>{phoneNumber}</h1>
       <h1>{address}</h1>
+      <ul>{educationArray.map(item => {
+        return <li key={item.id}>{item.school}</li>
+      })}</ul>
     </div>
   );
 }

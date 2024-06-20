@@ -1,13 +1,13 @@
 import { useState } from "react";
-import NewEducationForm from "./NewEducationForm";
+import NewWorkForm from "./NewWorkForm";
 import arrowRight from "../assets/images/arrow-right.svg";
 
 
-export default function EducationSection({
-  educationArray,
-  removeEducation,
-  addEducation,
-  editEducation
+export default function WorkSection({
+  workArray,
+  removeWork,
+  addWork,
+  editWork
 }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [editItem, setEditItem] = useState('')
@@ -27,24 +27,24 @@ export default function EducationSection({
   return (
     <div className="form">
       <div className="header">
-        <h1>Education</h1>
+        <h1>Work</h1>
         <span
           className={`hover-trigger ${isFormVisible ? "active" : ""}`}
           onClick={handleToggleFormVisibility}
         ></span>
       </div>
       {isFormVisible && (
-        <NewEducationForm
-        addEducation={addEducation}
-        editEducation={editEducation}
+        <NewWorkForm
+        addWork={addWork}
+        editWork={editWork}
         handleToggleFormVisibility={handleToggleFormVisibility}
         editItem={editItem}
         />
       )}
       {!isFormVisible && (
-        <EducationDisplay
-          educationArray={educationArray}
-          removeEducation={removeEducation}
+        <WorkDisplay
+          workArray={workArray}
+          removeWork={removeWork}
           handleEditFormVisibility={handleEditFormVisibility}
         />
       )}
@@ -52,23 +52,23 @@ export default function EducationSection({
   );
 }
 
-function EducationDisplay({ educationArray, removeEducation, handleEditFormVisibility }) {
+function WorkDisplay({ workArray, removeWork, handleEditFormVisibility }) {
   
   return (
     <div>
-      {educationArray.length > 0 ? (
+      {workArray.length > 0 ? (
         <ul>
-          {educationArray.map((item) => (
+          {workArray.map((item) => (
             <li className="form-display" key={item.id}>
-              <h2>{item.degree}</h2>
-              <p>{item.school}</p>
+              <h2>{item.role}</h2>
+              <p>{item.name}</p>
               <div className="dates">
                 <p>{item.startDate}</p>
                 <img src={arrowRight} alt="" />
                 <p>{item.endDate}</p>
               </div>
               <div className="display-buttons">
-                <button className="red-button" onClick={() => removeEducation(item.id)}>
+                <button className="red-button" onClick={() => removeWork(item.id)}>
                   Remove
                 </button>
                 <button className="yellow-button" onClick={() => handleEditFormVisibility(item)}>
@@ -79,7 +79,7 @@ function EducationDisplay({ educationArray, removeEducation, handleEditFormVisib
           ))}
         </ul>
       ) : (
-        <p>No education details added yet.</p>
+        <p>No Work details added yet.</p>
       )}
     </div>
   );

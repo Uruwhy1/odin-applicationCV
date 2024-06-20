@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/section.css'
 
 export default function PersonalForm({
   phoneNumber,
@@ -17,7 +18,7 @@ export default function PersonalForm({
   };
 
   return (
-    <div className="form">
+    <div className="section">
       <div className="header">
         <h1>Personal Information</h1>
         <span
@@ -37,7 +38,7 @@ export default function PersonalForm({
               placeholder="Lionel Messi"
             />
           </label>
-          <label className="recommended">
+          <label className="required">
             Email
             <input
               type="email"

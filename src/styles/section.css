@@ -1,0 +1,15 @@
+.section {
+  background-color: var(--bg-color);
+  border-radius: 5px;
+
+  width: 45%;
+  height: 60%;
+  padding: 2em;
+}
+
+.section h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+  border-bottom: 2px solid;
+  margin-bottom: 1rem;
+}

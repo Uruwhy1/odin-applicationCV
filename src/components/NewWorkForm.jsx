@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 
 export default function EducationForm({
-  addEducation,
-  editEducation,
+  addWork,
+  editWork,
   handleToggleFormVisibility,
   editItem,
 }) {
-  const [school, setSchool] = useState("");
-  const [degree, setDegree] = useState("");
+  const [name, setName] = useState("");
+  const [role, setrole] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     if (editItem) {
-      setSchool(editItem.school);
-      setDegree(editItem.degree);
+      setName(editItem.name);
+      setrole(editItem.role);
       setStartDate(editItem.startDate);
       setEndDate(editItem.endDate);
     }
@@ -22,13 +22,13 @@ export default function EducationForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newEducation = { school, degree, startDate, endDate };
+    const newWork = { name, role, startDate, endDate };
 
     if (editItem) {
-      newEducation.id = editItem.id;
-      editEducation(newEducation);
+      newWork.id = editItem.id;
+      editWork(newWork);
     } else {
-      addEducation(newEducation);
+      addWork(newWork);
     }
 
     handleToggleFormVisibility();
@@ -37,22 +37,22 @@ export default function EducationForm({
   return (
     <form className="section edu-form" onSubmit={handleSubmit}>
       <label className="required">
-        School Name
+        Company
         <input
           type="text"
-          placeholder="The Odin Highschool"
-          value={school}
-          onChange={(e) => setSchool(e.target.value)}
+          placeholder="Facebook"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </label>
       <label className="required">
-        Degree
+        Role
         <input
           type="text"
-          placeholder="JavaScript Foundations Course"
-          onChange={(e) => setDegree(e.target.value)}
-          value={degree}
+          placeholder="Data Analyst"
+          onChange={(e) => setrole(e.target.value)}
+          value={role}
           required
         />
       </label>
