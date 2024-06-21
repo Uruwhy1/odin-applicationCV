@@ -1,4 +1,3 @@
-import "./styles/app.css";
 import "./styles/variables.css";
 
 import ArrowRight from "./assets/images/arrow-right.svg?react";
@@ -15,11 +14,14 @@ import { useState } from "react";
 export default function App() {
   const [currentView, setCurrentView] = useState(0);
 
-  const handleNextViewChange = () => {
-    if (currentView == 2) setCurrentView(0);
+  const handleNextViewChange = (e) => {
+    e.target.blur();
+
+    if (currentView == 2) return;
     else setCurrentView(currentView + 1);
   };
-  const handlePrevViewChange = () => {
+  const handlePrevViewChange = (e) => {
+    e.target.blur();
     setCurrentView(currentView - 1);
   };
 
@@ -152,11 +154,34 @@ export default function App() {
           editWork={editWork}
         />
       )}
+      {currentView == 2 && (
+        <Preview
+          phoneNumber={phoneNumber}
+          firstName={firstName}
+          lastName={lastName}
+          email={email}
+          address={address}
+          zipCode={zipCode}
+          city={city}
+          gender={gender}
+          nationality={nationality}
+          dateOfBirth={dateOfBirth}
+          placeOfBirth={placeOfBirth}
 
-      <button className="next-slide" onClick={handleNextViewChange}>
-        <ArrowRight />
-        Next Form
-      </button>
+          educationArray={educationArray}
+          workArray={workArray}
+        />
+      )}
+      {currentView !== 2 && (
+        <button
+          className="next-slide orange-button"
+          onClick={handleNextViewChange}
+        >
+          {currentView == 1 ? "Final Result" : "Next Form"}
+          <ArrowRight />
+        </button>
+      )}
+
       {currentView !== 0 && (
         <button className="previous-slide" onClick={handlePrevViewChange}>
           <ArrowLeft />

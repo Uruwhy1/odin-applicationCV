@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NewWorkForm from "./NewWorkForm";
+
 import AddIcon from "../assets/images/plus-square.svg?react";
+import BriefcaseIcon from '../assets/images/briefcase.svg?react'
 
 
 export default function WorkSection({
@@ -25,6 +27,7 @@ export default function WorkSection({
   return (
     <div className="section work-section">
       <div className="header">
+        <BriefcaseIcon />
         <h1>Work</h1>
         <span
           className={`hover-trigger ${isFormVisible ? "active" : ""}`}

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import NewEducationForm from "./NewEducationForm";
+
 import AddIcon from "../assets/images/plus-square.svg?react";
+import BookIcon from '../assets/images/book-open.svg?react'
+
 import "../styles/section-two.css";
 
 export default function EducationSection({
@@ -25,6 +28,7 @@ export default function EducationSection({
   return (
     <div className="section">
       <div className="header">
+        <BookIcon />
         <h1>Education</h1>
       </div>
       {isFormVisible && (

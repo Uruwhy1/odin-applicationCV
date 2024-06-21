@@ -1,6 +1,11 @@
-.preview {
-  position: absolute;
+:root {
+  --preview-width: 600px;
+  --aspect-ratio: calc(30 / 21);
+}
 
-  top: 0;
-  left: 0;
+.preview {
+  background-color: red;
+
+  width: var(--preview-width);
+  height: calc(var(--preview-width) * var(--aspect-ratio));
 }

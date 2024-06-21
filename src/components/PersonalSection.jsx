@@ -1,4 +1,6 @@
 import "../styles/section.css";
+import UserIcon from "../assets/images/user.svg?react";
+import FileIcon from '../assets/images/file-text.svg?react'
 
 export default function PersonalForm({
   phoneNumber,
@@ -27,6 +29,7 @@ export default function PersonalForm({
   return (
     <div className="section">
       <div className="header">
+        <UserIcon />
         <h1>Personal Information</h1>
       </div>
 
@@ -74,9 +77,10 @@ export default function PersonalForm({
             />
           </label>
         </div>
-        <label>
+        <label className="recommended">
           Address
           <input
+            
             type="text"
             value={address}
             onChange={handleAddressChange}
@@ -104,6 +108,7 @@ export default function PersonalForm({
           </label>
         </div>
         <div className="header second-header">
+          <FileIcon />
           <h1>Additional Information</h1>
         </div>
 
