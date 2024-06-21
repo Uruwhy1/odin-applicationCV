@@ -1,0 +1,50 @@
+.preview h1 {
+  font-size: 18pt;
+  font-weight: bold;
+}
+.preview h2 {
+  font-size: 14pt;
+  font-weight: bold;
+}
+.preview h3 {
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.title {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.left-side {
+  width: 2rem;
+
+  background-color: var(--darker-red);
+}
+.right-side {
+  width: 100%;
+  padding: 2em;
+}
+
+
+.information {
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  line-height: 2em;
+  margin-bottom: 1rem;
+}
+.information .right {
+  font-weight: 600;
+  color: #202020;
+}
+.information .left {
+  color: gray;
+}
+
+.information .normal-italics {
+  margin-top: -0.5em;
+  font-weight: normal;
+  font-style: italic;
+}
+

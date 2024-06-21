@@ -7,6 +7,7 @@ export default function EducationForm({
   editItem,
 }) {
   const [school, setSchool] = useState("");
+  const [location, setLocation] = useState("");
   const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -14,6 +15,7 @@ export default function EducationForm({
   useEffect(() => {
     if (editItem) {
       setSchool(editItem.school);
+      setLocation(editItem.location)
       setDegree(editItem.degree);
       setStartDate(editItem.startDate);
       setEndDate(editItem.endDate);
@@ -22,7 +24,7 @@ export default function EducationForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newEducation = { school, degree, startDate, endDate };
+    const newEducation = { school, location, degree, startDate, endDate };
 
     if (editItem) {
       newEducation.id = editItem.id;
@@ -37,6 +39,7 @@ export default function EducationForm({
 
   return (
     <form className="edu-form form" onSubmit={handleSubmit}>
+      <div className="two-columns">
       <label className="required">
         School Name
         <input
@@ -47,6 +50,17 @@ export default function EducationForm({
           required
         />
       </label>
+      <label className="required">
+        Location
+        <input
+          type="text"
+          placeholder="New York"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          required
+        />
+      </label>
+      </div>
       <label className="required">
         Degree
         <input
@@ -62,7 +76,7 @@ export default function EducationForm({
           Start Date
           <input
             type="text"
-            placeholder="01/01/0001"
+            placeholder="Jan 2005"
             onChange={(e) => setStartDate(e.target.value)}
             value={startDate}
             required

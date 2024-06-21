@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 export default function App() {
-  const [currentView, setCurrentView] = useState(0);
+  const [currentView, setCurrentView] = useState(2);
 
   const handleNextViewChange = (e) => {
     e.target.blur();
@@ -26,13 +26,13 @@ export default function App() {
   };
 
   // PERSONAL SECTION STUFF
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [city, setCity] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("0912345165");
+  const [firstName, setFirstName] = useState("Lionel");
+  const [lastName, setLastName] = useState("Messi");
+  const [email, setEmail] = useState("messi@gmail.com");
+  const [address, setAddress] = useState("Messi's House");
+  const [zipCode, setZipCode] = useState("12555");
+  const [city, setCity] = useState("Miami, Florida");
   const [gender, setGender] = useState("");
   const [nationality, setNationality] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -60,8 +60,9 @@ export default function App() {
       id: 1,
       school: "School Test",
       degree: "Elementary School",
-      startDate: "20/04/2023",
-      endDate: "23/05/2029",
+      startDate: "Sep 2005",
+      endDate: "Dec 2013",
+      location: 'New York'
     },
   ]);
   const addEducation = (newEducation) => {
@@ -90,8 +91,9 @@ export default function App() {
       id: 1,
       name: "Netflix",
       role: "Data Analyst",
-      startDate: "20/04/2023",
-      endDate: "23/05/2029",
+      startDate: "Feb 2008",
+      endDate: "Present",
+      location: 'California'
     },
   ]);
 

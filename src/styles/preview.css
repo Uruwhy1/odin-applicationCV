@@ -1,11 +1,23 @@
 :root {
-  --preview-width: 600px;
+  --preview-width: 550px;
   --aspect-ratio: calc(30 / 21);
 }
 
 .preview {
-  background-color: red;
+  background-color: var(--bg-color);
+  box-shadow: 0 0 5px 1px #00000034;
+
 
   width: var(--preview-width);
   height: calc(var(--preview-width) * var(--aspect-ratio));
+
+  font-family: calibri;
+  font-size: 12pt;
+  line-height: 1.5;
+
+  display: flex;
+}
+
+.print {
+  margin-top: 1em;
 }
