@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NewEducationForm from "./NewEducationForm";
 import AddIcon from "../assets/images/plus-square.svg?react";
-import "../styles/education.css";
+import "../styles/section-two.css";
 
 export default function EducationSection({
   educationArray,
@@ -64,7 +64,7 @@ function EducationDisplay({
           {educationArray.map((item) => (
             <li className="form-display" key={item.id}>
               <div className="info">
-                <p className="degree">{item.degree}</p>
+                <p className="bold">{item.degree}</p>
                 <p>{item.school}</p>
                 <p className="dates">
                   {item.startDate} - {item.endDate ? item.endDate : "Present"}
@@ -88,7 +88,7 @@ function EducationDisplay({
           ))}
         </ul>
       ) : (
-        <p>No education details added yet.</p>
+        <p className="form-display">No education details added yet.</p>
       )}
     </div>
   );

@@ -35,7 +35,7 @@ export default function EducationForm({
   };
 
   return (
-    <form className="section edu-form" onSubmit={handleSubmit}>
+    <form className="edu-form form" onSubmit={handleSubmit}>
       <label className="required">
         Company
         <input
@@ -56,13 +56,15 @@ export default function EducationForm({
           required
         />
       </label>
-      <label className="recommended">
+      <div className="two-columns">
+      <label className="required">
         Start Date
         <input
           type="text"
           placeholder="01/01/0001"
           onChange={(e) => setStartDate(e.target.value)}
           value={startDate}
+          required
         />
       </label>
       <label className="recommended">
@@ -74,6 +76,8 @@ export default function EducationForm({
           value={endDate}
         />
       </label>
+      </div>
+      
       <div className="buttons">
         <button className="green-button">Save</button>
         <button className="red-button" onClick={handleToggleFormVisibility}>

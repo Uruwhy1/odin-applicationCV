@@ -6,6 +6,7 @@ import ArrowLeft from "./assets/images/arrow-left.svg?react";
 
 import PersonalForm from "./components/PersonalSection";
 import EducationSection from "./components/EducationSection.jsx";
+import WorkSection from "./components/WorkSection.jsx";
 import Preview from "./components/Preview.jsx";
 
 import { v4 as uuidv4 } from "uuid";
@@ -81,6 +82,32 @@ export default function App() {
     );
   };
 
+  // WORK SECTION STUFF
+  const [workArray, setWorkArray] = useState([
+    {
+      id: 1,
+      name: "Netflix",
+      role: "Data Analyst",
+      startDate: "20/04/2023",
+      endDate: "23/05/2029",
+    },
+  ]);
+
+  const addWork = (newWork) => {
+    const workWithId = { ...newWork, id: uuidv4() }; // add uuid
+    setWorkArray((prevWorkArray) => [...prevWorkArray, workWithId]);
+  };
+  const removeWork = (id) => {
+    setWorkArray((prevArray) => prevArray.filter((entry) => entry.id !== id));
+  };
+  const editWork = (updatedWork) => {
+    setWorkArray((prevArray) =>
+      prevArray.map((entry) =>
+        entry.id === updatedWork.id ? updatedWork : entry
+      )
+    );
+  };
+
   return (
     <div className="container">
       {currentView == 0 && (
@@ -117,16 +144,15 @@ export default function App() {
           editEducation={editEducation}
         />
       )}
-      {currentView == 2 && (
-        <div>
-          <WorkSection
-            workArray={workArray}
-            addWork={addWork}
-            removeWork={removeWork}
-            editWork={editWork}
-          />
-        </div>
+      {currentView == 1 && (
+        <WorkSection
+          workArray={workArray}
+          addWork={addWork}
+          removeWork={removeWork}
+          editWork={editWork}
+        />
       )}
+
       <button className="next-slide" onClick={handleNextViewChange}>
         <ArrowRight />
         Next Form
@@ -142,30 +168,5 @@ export default function App() {
 }
 
 /*   
-  // WORK SECTION STUFF
-  const [workArray, setWorkArray] = useState([
-    {
-      id: 1,
-      name: "Netflix",
-      role: "Data Analyst",
-      startDate: "20/04/2023",
-      endDate: "23/05/2029",
-    },
-  ]);
-
-  const addWork = (newWork) => {
-    const workWithId = { ...newWork, id: uuidv4() }; // add uuid
-    setWorkArray((prevWorkArray) => [...prevWorkArray, workWithId]);
-  };
-  const removeWork = (id) => {
-    setWorkArray((prevArray) => prevArray.filter((entry) => entry.id !== id));
-  };
-  const editWork = (updatedWork) => {
-    setWorkArray((prevArray) =>
-      prevArray.map((entry) =>
-        entry.id === updatedWork.id ? updatedWork : entry
-      )
-    );
-  };
-
+  
   */

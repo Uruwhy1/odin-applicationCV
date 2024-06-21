@@ -1,16 +1,16 @@
 import { useState } from "react";
 import NewWorkForm from "./NewWorkForm";
-import arrowRight from "../assets/images/arrow-right.svg";
+import AddIcon from "../assets/images/plus-square.svg?react";
 
 
 export default function WorkSection({
   workArray,
   removeWork,
   addWork,
-  editWork
+  editWork,
 }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const [editItem, setEditItem] = useState('')
+  const [editItem, setEditItem] = useState("");
 
   const handleToggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
@@ -18,14 +18,12 @@ export default function WorkSection({
   };
 
   const handleEditFormVisibility = (item) => {
-    setEditItem(item)
+    setEditItem(item);
     setIsFormVisible(!isFormVisible);
   };
 
-
-
   return (
-    <div className="form">
+    <div className="section work-section">
       <div className="header">
         <h1>Work</h1>
         <span
@@ -35,10 +33,10 @@ export default function WorkSection({
       </div>
       {isFormVisible && (
         <NewWorkForm
-        addWork={addWork}
-        editWork={editWork}
-        handleToggleFormVisibility={handleToggleFormVisibility}
-        editItem={editItem}
+          addWork={addWork}
+          editWork={editWork}
+          handleToggleFormVisibility={handleToggleFormVisibility}
+          editItem={editItem}
         />
       )}
       {!isFormVisible && (
@@ -48,30 +46,42 @@ export default function WorkSection({
           handleEditFormVisibility={handleEditFormVisibility}
         />
       )}
+      {!isFormVisible && (
+        <button className="add-button" onClick={handleToggleFormVisibility}>
+          <AddIcon/>
+          Add a new education
+        </button>
+      )}
     </div>
   );
 }
 
 function WorkDisplay({ workArray, removeWork, handleEditFormVisibility }) {
-  
   return (
     <div>
       {workArray.length > 0 ? (
         <ul>
           {workArray.map((item) => (
             <li className="form-display" key={item.id}>
-              <h2>{item.role}</h2>
-              <p>{item.name}</p>
-              <div className="dates">
-                <p>{item.startDate}</p>
-                <img src={arrowRight} alt="" />
-                <p>{item.endDate}</p>
+              <div className="info">
+                <p className="bold">{item.role}</p>
+                <p>{item.name}</p>
+                <p className="dates">
+                  {item.startDate} - {item.endDate ? item.endDate : "Present"}
+                </p>
               </div>
+
               <div className="display-buttons">
-                <button className="red-button" onClick={() => removeWork(item.id)}>
+                <button
+                  className="red-button"
+                  onClick={() => removeWork(item.id)}
+                >
                   Remove
                 </button>
-                <button className="yellow-button" onClick={() => handleEditFormVisibility(item)}>
+                <button
+                  className="yellow-button"
+                  onClick={() => handleEditFormVisibility(item)}
+                >
                   Edit
                 </button>
               </div>
@@ -79,7 +89,7 @@ function WorkDisplay({ workArray, removeWork, handleEditFormVisibility }) {
           ))}
         </ul>
       ) : (
-        <p>No Work details added yet.</p>
+        <p className="form-display">No Work details added yet.</p>
       )}
     </div>
   );

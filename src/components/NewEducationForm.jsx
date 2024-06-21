@@ -41,7 +41,7 @@ export default function EducationForm({
         School Name
         <input
           type="text"
-          placeholder="The Odin Highschool"
+          placeholder="The Odin School"
           value={school}
           onChange={(e) => setSchool(e.target.value)}
           required

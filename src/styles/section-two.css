@@ -14,7 +14,7 @@
   grid-area: text;
 }
 
-.form-display .degree {
+.form-display .bold {
   font-weight: bold;
 }
 
@@ -48,4 +48,8 @@
 .edu-form .buttons {
   display: flex;
   gap: 15px;
+}
+
+.work-section {
+  margin-top: 2rem;
 }
