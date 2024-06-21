@@ -1,0 +1,51 @@
+.form-display {
+  text-decoration: none;
+  list-style: none;
+
+  border-bottom: var(--form-borders);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+
+  display: grid;
+  grid-template-areas: "text buttons";
+}
+.form-display .info {
+  grid-area: text;
+}
+
+.form-display .degree {
+  font-weight: bold;
+}
+
+.form-display .dates {
+  margin-top: 5px;
+}
+
+.form-display .display-buttons {
+  grid-area: buttons;
+  place-self: center end;
+
+  display: flex;
+  gap: 15px;
+}
+
+.section .add-button {
+  display: flex;
+  padding: 1rem;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  max-width: 100%;
+  width: 100%;
+}
+
+.edu-form {
+  width: 100%;
+}
+.edu-form .buttons {
+  display: flex;
+  gap: 15px;
+}

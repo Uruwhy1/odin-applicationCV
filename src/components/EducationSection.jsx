@@ -1,44 +1,38 @@
 import { useState } from "react";
 import NewEducationForm from "./NewEducationForm";
-import arrowRight from "../assets/images/arrow-right.svg";
-
+import AddIcon from "../assets/images/plus-square.svg?react";
+import "../styles/education.css";
 
 export default function EducationSection({
   educationArray,
   removeEducation,
   addEducation,
-  editEducation
+  editEducation,
 }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const [editItem, setEditItem] = useState('')
+  const [editItem, setEditItem] = useState("");
 
   const handleToggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
-    setEditItem(null); // Reset edit item when form is toggled
+    setEditItem(null);
   };
 
   const handleEditFormVisibility = (item) => {
-    setEditItem(item)
+    setEditItem(item);
     setIsFormVisible(!isFormVisible);
   };
 
-
-
   return (
-    <div className="form">
+    <div className="section">
       <div className="header">
         <h1>Education</h1>
-        <span
-          className={`hover-trigger ${isFormVisible ? "active" : ""}`}
-          onClick={handleToggleFormVisibility}
-        ></span>
       </div>
       {isFormVisible && (
         <NewEducationForm
-        addEducation={addEducation}
-        editEducation={editEducation}
-        handleToggleFormVisibility={handleToggleFormVisibility}
-        editItem={editItem}
+          addEducation={addEducation}
+          editEducation={editEducation}
+          handleToggleFormVisibility={handleToggleFormVisibility}
+          editItem={editItem}
         />
       )}
       {!isFormVisible && (
@@ -48,30 +42,45 @@ export default function EducationSection({
           handleEditFormVisibility={handleEditFormVisibility}
         />
       )}
+      {!isFormVisible && (
+        <button className="add-button" onClick={handleToggleFormVisibility}>
+          <AddIcon />
+          Add a new education
+        </button>
+      )}
     </div>
   );
 }
 
-function EducationDisplay({ educationArray, removeEducation, handleEditFormVisibility }) {
-  
+function EducationDisplay({
+  educationArray,
+  removeEducation,
+  handleEditFormVisibility,
+}) {
   return (
     <div>
       {educationArray.length > 0 ? (
         <ul>
           {educationArray.map((item) => (
             <li className="form-display" key={item.id}>
-              <h2>{item.degree}</h2>
-              <p>{item.school}</p>
-              <div className="dates">
-                <p>{item.startDate}</p>
-                <img src={arrowRight} alt="" />
-                <p>{item.endDate}</p>
+              <div className="info">
+                <p className="degree">{item.degree}</p>
+                <p>{item.school}</p>
+                <p className="dates">
+                  {item.startDate} - {item.endDate ? item.endDate : "Present"}
+                </p>
               </div>
               <div className="display-buttons">
-                <button className="red-button" onClick={() => removeEducation(item.id)}>
+                <button
+                  className="red-button"
+                  onClick={() => removeEducation(item.id)}
+                >
                   Remove
                 </button>
-                <button className="yellow-button" onClick={() => handleEditFormVisibility(item)}>
+                <button
+                  className="yellow-button"
+                  onClick={() => handleEditFormVisibility(item)}
+                >
                   Edit
                 </button>
               </div>

@@ -32,10 +32,11 @@ export default function EducationForm({
     }
 
     handleToggleFormVisibility();
+    console.log("XD");
   };
 
   return (
-    <form className="section edu-form" onSubmit={handleSubmit}>
+    <form className="edu-form form" onSubmit={handleSubmit}>
       <label className="required">
         School Name
         <input
@@ -56,26 +57,31 @@ export default function EducationForm({
           required
         />
       </label>
-      <label className="recommended">
-        Start Date
-        <input
-          type="text"
-          placeholder="01/01/0001"
-          onChange={(e) => setStartDate(e.target.value)}
-          value={startDate}
-        />
-      </label>
-      <label className="recommended">
-        End Date
-        <input
-          type="text"
-          placeholder="09/09/9999"
-          onChange={(e) => setEndDate(e.target.value)}
-          value={endDate}
-        />
-      </label>
+      <div className="two-columns">
+        <label className="required">
+          Start Date
+          <input
+            type="text"
+            placeholder="01/01/0001"
+            onChange={(e) => setStartDate(e.target.value)}
+            value={startDate}
+            required
+          />
+        </label>
+        <label>
+          End Date
+          <input
+            type="text"
+            placeholder="Present"
+            onChange={(e) => setEndDate(e.target.value)}
+            value={endDate}
+          />
+        </label>
+      </div>
       <div className="buttons">
-        <button className="green-button">Save</button>
+        <button type="submit" className="green-button">
+          Save
+        </button>
         <button className="red-button" onClick={handleToggleFormVisibility}>
           Close
         </button>

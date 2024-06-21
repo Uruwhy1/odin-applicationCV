@@ -7,7 +7,6 @@
   padding: 2em;
 
   transition: 5s;
-
 }
 
 .section h1 {
@@ -89,18 +88,26 @@
   color: gray;
 }
 
-.section svg {
-  cursor: pointer;
-  transition: 0.1s;
+.next-slide, .previous-slide {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 1rem 1.5rem;
 }
-.section svg:hover {
-  transform: scale(1.1);
+.next-slide {
+  background-color: var(--orange);
 }
-
-.section .hidden {
-  display: none;
+.next-slide:hover {
+  background-color: var(--darker-orange);
 }
-
-.section .visible {
-
+.previous-slide {
+  border: none;
+  background-color: transparent;
+  color: gray;
+}
+.previous-slide:hover {
+  text-decoration: underline;
 }

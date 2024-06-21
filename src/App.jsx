@@ -1,11 +1,27 @@
 import "./styles/app.css";
 import "./styles/variables.css";
+
+import ArrowRight from "./assets/images/arrow-right.svg?react";
+import ArrowLeft from "./assets/images/arrow-left.svg?react";
+
 import PersonalForm from "./components/PersonalSection";
+import EducationSection from "./components/EducationSection.jsx";
 import Preview from "./components/Preview.jsx";
 
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 export default function App() {
+  const [currentView, setCurrentView] = useState(0);
+
+  const handleNextViewChange = () => {
+    if (currentView == 2) setCurrentView(0);
+    else setCurrentView(currentView + 1);
+  };
+  const handlePrevViewChange = () => {
+    setCurrentView(currentView - 1);
+  };
+
   // PERSONAL SECTION STUFF
   const [phoneNumber, setPhoneNumber] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -35,70 +51,7 @@ export default function App() {
   const handleDateOfBirthChange = (e) => setDateOfBirth(e.target.value);
   const handlePlaceOfBirthChange = (e) => setPlaceOfBirth(e.target.value);
 
-  return (
-    <div className="container">
-      <PersonalForm
-        phoneNumber={phoneNumber}
-        handlePhoneNumberChange={handlePhoneNumberChange}
-        firstName={firstName}
-        lastName={lastName}
-        handleFirstNameChange={handleFirstNameChange}
-        handleLastNameChange={handleLastNameChange}
-        email={email}
-        handleEmailChange={handleEmailChange}
-        address={address}
-        handleAddressChange={handleAddressChange}
-        zipCode={zipCode}
-        handleZipCodeChange={handleZipCodeChange}
-        city={city}
-        handleCityChange={handleCityChange}
-        gender={gender}
-        handleGenderChange={handleGenderChange}
-        nationality={nationality}
-        handleNationalityChange={handleNationalityChange}
-        dateOfBirth={dateOfBirth}
-        handleDateOfBirthChange={handleDateOfBirthChange}
-        placeOfBirth={placeOfBirth}
-        handlePlaceOfBirthChange={handlePlaceOfBirthChange}
-      />
-      {false && (
-        <div>
-          <EducationSection
-            educationArray={educationArray}
-            addEducation={addEducation}
-            removeEducation={removeEducation}
-            editEducation={editEducation}
-          />
-        </div>
-      )}
-      {false && (
-        <div>
-          <WorkSection
-            workArray={workArray}
-            addWork={addWork}
-            removeWork={removeWork}
-            editWork={editWork}
-          />
-        </div>
-      )}
-      <Preview
-        phoneNumber={phoneNumber}
-        firstName={firstName}
-        lastName={lastName}
-        email={email}
-        address={address}
-        zipCode={zipCode}
-        city={city}
-        gender={gender}
-        nationality={nationality}
-        dateOfBirth={dateOfBirth}
-        placeOfBirth={placeOfBirth}
-      />
-    </div>
-  );
-}
-
-/*   // EDUCATION SECTION STUFF
+  // EDUCATION SECTION STUFF
   const [educationArray, setEducationArray] = useState([
     {
       id: 1,
@@ -128,6 +81,67 @@ export default function App() {
     );
   };
 
+  return (
+    <div className="container">
+      {currentView == 0 && (
+        <PersonalForm
+          phoneNumber={phoneNumber}
+          handlePhoneNumberChange={handlePhoneNumberChange}
+          firstName={firstName}
+          lastName={lastName}
+          handleFirstNameChange={handleFirstNameChange}
+          handleLastNameChange={handleLastNameChange}
+          email={email}
+          handleEmailChange={handleEmailChange}
+          address={address}
+          handleAddressChange={handleAddressChange}
+          zipCode={zipCode}
+          handleZipCodeChange={handleZipCodeChange}
+          city={city}
+          handleCityChange={handleCityChange}
+          gender={gender}
+          handleGenderChange={handleGenderChange}
+          nationality={nationality}
+          handleNationalityChange={handleNationalityChange}
+          dateOfBirth={dateOfBirth}
+          handleDateOfBirthChange={handleDateOfBirthChange}
+          placeOfBirth={placeOfBirth}
+          handlePlaceOfBirthChange={handlePlaceOfBirthChange}
+        />
+      )}
+      {currentView == 1 && (
+        <EducationSection
+          educationArray={educationArray}
+          addEducation={addEducation}
+          removeEducation={removeEducation}
+          editEducation={editEducation}
+        />
+      )}
+      {currentView == 2 && (
+        <div>
+          <WorkSection
+            workArray={workArray}
+            addWork={addWork}
+            removeWork={removeWork}
+            editWork={editWork}
+          />
+        </div>
+      )}
+      <button className="next-slide" onClick={handleNextViewChange}>
+        <ArrowRight />
+        Next Form
+      </button>
+      {currentView !== 0 && (
+        <button className="previous-slide" onClick={handlePrevViewChange}>
+          <ArrowLeft />
+          Previous Form
+        </button>
+      )}
+    </div>
+  );
+}
+
+/*   
   // WORK SECTION STUFF
   const [workArray, setWorkArray] = useState([
     {

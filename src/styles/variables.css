@@ -2,10 +2,16 @@
   font-size: 16px;
   --bg-color: #ffffff;
   --bg-color-darker: #dbdbdb;
+
   --green: #86e49a;
   --darker-green: #33d14d;
   --red: #ff7783;
   --darker-red: #eb3d4c;
   --yellow: #f6ff77;
   --darker-yellow: #e8eb3d;
+  --orange: #ffdb77;
+  --darker-orange: #ebc33d;
+
+  --form-borders: 1px solid rgb(206, 206, 206); 
+
 }
