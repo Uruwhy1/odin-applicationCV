@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 export default function App() {
-  const [currentView, setCurrentView] = useState(2);
+  const [currentView, setCurrentView] = useState(0);
 
   const handleNextViewChange = (e) => {
     e.target.blur();
@@ -26,13 +26,13 @@ export default function App() {
   };
 
   // PERSONAL SECTION STUFF
-  const [phoneNumber, setPhoneNumber] = useState("0912345165");
-  const [firstName, setFirstName] = useState("Lionel");
-  const [lastName, setLastName] = useState("Messi");
-  const [email, setEmail] = useState("messi@gmail.com");
-  const [address, setAddress] = useState("Messi's House");
-  const [zipCode, setZipCode] = useState("12555");
-  const [city, setCity] = useState("Miami, Florida");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [city, setCity] = useState("");
   const [gender, setGender] = useState("");
   const [nationality, setNationality] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -55,16 +55,7 @@ export default function App() {
   const handlePlaceOfBirthChange = (e) => setPlaceOfBirth(e.target.value);
 
   // EDUCATION SECTION STUFF
-  const [educationArray, setEducationArray] = useState([
-    {
-      id: 1,
-      school: "School Test",
-      degree: "Elementary School",
-      startDate: "Sep 2005",
-      endDate: "Dec 2013",
-      location: 'New York'
-    },
-  ]);
+  const [educationArray, setEducationArray] = useState([]);
   const addEducation = (newEducation) => {
     const educationWithId = { ...newEducation, id: uuidv4() }; // add uuid
     setEducationArray((prevEducationArray) => [
@@ -86,16 +77,7 @@ export default function App() {
   };
 
   // WORK SECTION STUFF
-  const [workArray, setWorkArray] = useState([
-    {
-      id: 1,
-      name: "Netflix",
-      role: "Data Analyst",
-      startDate: "Feb 2008",
-      endDate: "Present",
-      location: 'California'
-    },
-  ]);
+  const [workArray, setWorkArray] = useState([]);
 
   const addWork = (newWork) => {
     const workWithId = { ...newWork, id: uuidv4() }; // add uuid
@@ -169,7 +151,6 @@ export default function App() {
           nationality={nationality}
           dateOfBirth={dateOfBirth}
           placeOfBirth={placeOfBirth}
-
           educationArray={educationArray}
           workArray={workArray}
         />

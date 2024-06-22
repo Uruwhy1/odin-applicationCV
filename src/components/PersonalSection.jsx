@@ -35,29 +35,27 @@ export default function PersonalForm({
 
       <div className="form">
         <div className="two-columns">
-          <label className="required">
+          <label className="recommended">
             First Name
             <input
               type="text"
               value={firstName}
               onChange={handleFirstNameChange}
               placeholder="Lionel"
-              required
             />
           </label>
-          <label className="required">
+          <label className="recommended">
             Last Name
             <input
               type="text"
               value={lastName}
               placeholder="Messi"
               onChange={handleLastNameChange}
-              required
             />
           </label>
         </div>
         <div className="two-columns">
-          <label className="required">
+          <label className="recommended">
             Email Address
             <input
               type="email"
