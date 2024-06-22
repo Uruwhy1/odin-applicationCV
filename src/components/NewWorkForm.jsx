@@ -86,7 +86,7 @@ export default function EducationForm({
           End Date
           <input
             type="text"
-            placeholder="09/09/9999"
+            placeholder="Present"
             onChange={(e) => setEndDate(e.target.value)}
             value={endDate}
           />
