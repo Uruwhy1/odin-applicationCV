@@ -19,13 +19,16 @@
 .left-side {
   width: 2rem;
 
-  background-color: var(--darker-red);
+  background-color: #eb3d4c;
 }
 .right-side {
   width: 100%;
   padding: 2em;
 }
 
+.preview .header {
+  color: gray;
+}
 
 .information {
   display: grid;
