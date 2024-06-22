@@ -1,10 +1,11 @@
 :root {
-  font-size: 16px;
   --bg-color: #ffffff;
-  --bg-color-darker: #f3f3f3;
+  --bg-color-darker: #e2e2e2;
+  --input-background: #ffffff;
+  --light-switch-bg: #4b4b4b;
 
-  --green: #86e49a;
-  --darker-green: #33d14d;
+  --green: #70ce84;
+  --darker-green: #3ae757;
   --red: #ff7783;
   --darker-red: #eb3d4c;
   --yellow: #f6ff77;
@@ -12,5 +13,29 @@
   --orange: #ffdb77;
   --darker-orange: #ebc33d;
 
-  --form-borders: 1px solid rgb(206, 206, 206); 
+  --text-color: #101010;
+  --secondary-text-color: gray;
+  
+
+  --form-borders: 1px solid rgb(206, 206, 206);
+
+}
+
+:root.dark {
+  --bg-color: #4e4e4e;
+  --bg-color-darker: #353535;
+  --input-background: #ffffff;
+  --light-switch-bg: #a1a1a1;
+
+  --green: #37b953;
+  --darker-green: #208135;
+  --red: #c43641;
+  --darker-red: #85252d;
+  --yellow: #e8eb3d;
+  --darker-yellow: #f6ff77;
+  --orange: #ebc33d;
+  --darker-orange: #bb952b;
+
+  --text-color: #ffffff;
+  --secondary-text-color: rgb(199, 199, 199);
 }

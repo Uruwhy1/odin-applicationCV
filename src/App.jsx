@@ -2,6 +2,8 @@ import "./styles/variables.css";
 
 import ArrowRight from "./assets/images/arrow-right.svg?react";
 import ArrowLeft from "./assets/images/arrow-left.svg?react";
+import SunIcon from "./assets/images/sun.svg?react";
+import MoonIcon from "./assets/images/moon.svg?react";
 
 import PersonalForm from "./components/PersonalSection";
 import EducationSection from "./components/EducationSection.jsx";
@@ -9,9 +11,35 @@ import WorkSection from "./components/WorkSection.jsx";
 import Preview from "./components/Preview.jsx";
 
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
+  // LIGHT/DARK MODE HANDLER
+  const [mode, setMode] = useState("light");
+
+  useEffect(() => {
+    const userPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    if (userPrefersDark) {
+      setMode("dark");
+    }
+  }, []);
+
+  const toggleMode = () => {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+
+    document.querySelector(".light-switch").classList.add("rotate-animation");
+    setTimeout(() => {
+      document.querySelector(".light-switch").classList.remove("rotate-animation");
+    }, 600);
+  };
+
+  useEffect(() => {
+    document.documentElement.className = mode;
+  }, [mode]);
+
+  // CURRENT VIEW HANDLER
   const [currentView, setCurrentView] = useState(0);
 
   const handleNextViewChange = (e) => {
@@ -96,6 +124,9 @@ export default function App() {
 
   return (
     <div className="container">
+      <button className="light-switch" onClick={toggleMode}>
+        {mode == "light" ? <SunIcon /> : <MoonIcon />}
+      </button>
       {currentView == 0 && (
         <PersonalForm
           phoneNumber={phoneNumber}

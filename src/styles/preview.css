@@ -4,7 +4,8 @@
 }
 
 .preview {
-  background-color: var(--bg-color);
+  background-color: #f3f3f3;
+  color: #101010;
   box-shadow: 0 0 5px 1px #00000034;
 
 
