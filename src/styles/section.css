@@ -3,22 +3,21 @@
   box-shadow: 0 0 5px 1px #00000034;
   border-radius: 5px;
 
-  width: 45%;
+  width: 50%;
   padding: 2em;
 
   transition: background 0.3s;
-
 }
- .header {
+
+.header {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  
-  border-bottom: var(--form-borders); 
+
+  border-bottom: var(--form-borders);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   color: var(--secondary-text-color);
-
 }
 
 .section h1 {
@@ -28,7 +27,6 @@
 
 .section .second-header {
   margin-bottom: 0;
-
 }
 
 .second-header {
@@ -47,7 +45,6 @@
   gap: 1em;
   flex-direction: column;
 }
-
 
 .form label {
   display: flex;
@@ -112,13 +109,14 @@
   border-color: rgba(0, 0, 0, 0.13);
 }
 
-.next-slide, .previous-slide {
+.next-slide,
+.previous-slide {
   margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  
+
   padding: 0.7em 2em;
 }
 .next-slide {
@@ -139,4 +137,40 @@
 }
 .previous-slide:hover {
   text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1500px) {
+  .section {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .section {
+    width: 80%;
+    padding: 2em;
+  }
+
+  .two-columns {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .two-columns label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section {
+    width: 100%;
+    padding: 2em;
+
+    border-radius: 0;
+  }
+
 }

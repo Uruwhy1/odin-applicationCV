@@ -82,7 +82,7 @@ export default function EducationForm({
             required
           />
         </label>
-        <label className="recommended">
+        <label>
           End Date
           <input
             type="text"
