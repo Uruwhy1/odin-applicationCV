@@ -7,15 +7,12 @@ Simple CV builder application built using React. This application allows users t
 ## Features
 
 - Create and edit CVs using a simple form.
-- Generate unique CV identifiers with UUID.
 - Preview your CV in real-time.
 - Download your CV as a PDF.
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building user interfaces.
-- **Vite**: A build tool that provides a fast development environment.
-- **UUID**: A library for generating unique identifiers.
-- **ESLint**: A tool for identifying and fixing problems in JavaScript code.
+- **React**.
+- **Vite**.
 - **CSS**.
 - **HTML**.
